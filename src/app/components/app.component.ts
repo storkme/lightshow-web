@@ -1,16 +1,25 @@
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/observable/interval';
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CounterService } from '../shared/counter.service';
 @Component({
   selector: 'app',
-  template: '<p>counting is fun: {{counter|async}}</p>'
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  providers: [CounterService],
 })
-export class AppComponent {
-  counter: any;
+export class AppComponent implements OnInit {
+  counter: Observable<number>;
+  sampleText = 'This text has been filtered through the eccentricCase pipe';
 
-  constructor() {
-    this.counter = Observable.interval(100);
+  constructor(private counterService: CounterService) {
+  }
+
+  ngOnInit(): void {
+    this.counter = this.counterService.getInitialValue()
+      .mergeMap(initialValue =>
+        Observable.interval(100)
+          .map(i => i + initialValue)
+      );
   }
 }

@@ -4,6 +4,8 @@
 * Webpack 2
 * Typescript 2
 
+don't forget ng2 has a style guide: https://angular.io/styleguide
+
 ## files n' folders
 
 * `src/` source files (html, js, etc)
