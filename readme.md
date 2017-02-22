@@ -17,8 +17,9 @@
 * `ngc` - run the angular compiler
 * `build` - build the app with AoT compilation
 * `build:jit` - build the app in the conventional way (using JIT compilation)
-* `serve:jit` - serve the plain JIT version of the site.
-* `serve:aot` - serve an AoT compiled version of the site (can be a little buggy - probably best to use `serve:jit` instead)
+* `serve-watch:jit` - serve the plain JIT version of the site.
+* `serve-watch:aot` - serve an AoT compiled version of the site (can be a little buggy - probably best to use `serve:jit` instead)
+* `serve:dist` - run a mini web server locally on port 9001 and serve the contents of the dist/ folder.
 
 ## TODO
 

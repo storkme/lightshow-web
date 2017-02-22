@@ -3,15 +3,12 @@ let path = require('path');
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
 let CopyWebpackPlugin = require('copy-webpack-plugin');
 
-let WS_ENDPOINT = "ws://\"+window.location.host+\"";
+let development = true;
 
 if (process.argv.indexOf('-p') > 0) {
-  console.error('Running in production mode');
-} else {
-  WS_ENDPOINT = "ws://localhost:8096";
+  console.error('!! Running in production mode !!');
+  development = false;
 }
-
-console.log('Using websocket endpoint: ' + WS_ENDPOINT);
 
 module.exports.devServer = {
   contentBase: './src',
@@ -70,9 +67,9 @@ module.exports.plugins = [
     { from: 'index.html' }
   ]),
   new ExtractTextPlugin('style.bundle.css'),
-  // new webpack.DefinePlugin({
-  //   'WS_ENDPOINT': `"${WS_ENDPOINT}"`,
-  // })
+  new webpack.DefinePlugin({
+    'DEV_MODE': development,
+  })
 ];
 
 module.exports.resolve = {
