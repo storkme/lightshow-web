@@ -37,13 +37,13 @@ describe('counter service - angular tests', () => {
             .subscribe((connection: MockConnection) => {
               //when we get a connection request, build a Response with fake data and pass it back!
               connection.mockRespond(new Response(new ResponseOptions({
-                body: JSON.stringify({ initialValue: 10 })
+                body: JSON.stringify({ public_repos: 10 })
               })));
             });
 
           //call our method as usual, under the hood it will hit our MockedBackend instead of making
           // a real http request!
-          service.getInitialValue()
+          service.getRepoCount()
             .subscribe(initialValue => {
               // check the value of our response.
               expect(initialValue).toBe(10);
@@ -67,7 +67,7 @@ describe('counter service - angular tests', () => {
               connection.mockError(new Error('http request failed?'));
             });
 
-          service.getInitialValue()
+          service.getRepoCount()
             .subscribe(initialValue => {
               // check the value of our response.
               expect(initialValue).toBe(0);

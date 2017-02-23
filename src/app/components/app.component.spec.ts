@@ -14,7 +14,7 @@ describe('app component', () => {
 
   /* create a blank version of our number service with an empty implementation of the method we'll be spying on */
   let numberServiceStub: any = {
-    getInitialValue(){
+    getRepoCount(){
     }
   };
   let spy: any;
@@ -38,20 +38,20 @@ describe('app component', () => {
     //get our injected number service (stub)
     numberService = fixture.debugElement.injector.get(NumberService);
     //create a spy based on our numberService
-    spy = spyOn(numberService, 'getInitialValue')
+    spy = spyOn(numberService, 'getRepoCount')
       .and.returnValue(Observable.of(0));
 
-    de = fixture.debugElement.query(By.css('p.number'));
+    de = fixture.debugElement.query(By.css('span.repo-count'));
   });
 
   it('should not show value before OnInit is called', () => {
     expect(de.nativeElement.textContent).toBe('', 'nothing displayed');
-    expect(spy.calls.any()).toBe(false, 'getInitialValue not yet called');
+    expect(spy.calls.any()).toBe(false, 'getRepoCount not yet called');
   });
 
   it('should show initial value from mocked service', () => {
     fixture.detectChanges();
-    expect(spy.calls.any()).toBe(true, 'getInitialValue should be called now');
-    expect(de.nativeElement.textContent).toBe('Number: 0', 'Number text should be seeded with initial value by now');
+    expect(spy.calls.any()).toBe(true, 'getRepoCount should be called now');
+    expect(de.nativeElement.textContent).toBe('0', 'Number text should be seeded with initial value by now');
   });
 });

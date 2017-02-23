@@ -42,15 +42,7 @@ module.exports.module = {
     {
       test: /\.css$/,
       include: path.resolve(process.cwd(), 'src', 'app'),
-      loaders: ['to-string-loader', 'css-loader']
-    },
-    {
-      test: /\.css$/,
-      exclude: path.resolve(process.cwd(), 'src', 'app'),
-      use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: 'css-loader'
-      })
+      loaders: ['to-string-loader', 'raw-loader']
     }
   ]
 };

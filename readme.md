@@ -3,8 +3,19 @@
 * Angular 2
 * Webpack 2
 * Typescript 2
+* Unit testing with Karma and Jasmine
 
-don't forget ng2 has a style guide: https://angular.io/styleguide
+## Get started
+
+1. Install dependencies using npm or yarn:
+
+  ```npm install``` or ```yarn install```
+
+2. Run the `serve-watch:jit` script to kick off the dev server.
+
+  ```npm run serve-watch:jit```
+  
+3. Open up [http://localhost:9000/webpack-dev-server/](http://localhost:9000/webpack-dev-server/) in the browser.
 
 ## files n' folders
 
@@ -14,16 +25,16 @@ don't forget ng2 has a style guide: https://angular.io/styleguide
 
 ## Scripts
 
-* `cleanup` - delete dist & build folders
-* `explorer` - run `source-map-explorer` (great for figuring out why your main.bundle.js is like 11MB)
-* `ngc` - run the angular compiler
-* `build` - build the app with AoT compilation
-* `build:jit` - build the app in the conventional way (using JIT compilation)
-* `serve-watch:jit` - serve the plain JIT version of the site.
-* `serve-watch:aot` - serve an AoT compiled version of the site (can be a little buggy - probably best to use `serve:jit` instead)
-* `serve:dist` - run a mini web server locally on port 9001 and serve the contents of the dist/ folder.
+In order of how likely you are to need them....!
+
+1. `serve-watch:jit` - serve the plain JIT version of the site.
+2. `build` - build the app with AoT compilation
+3. `cleanup` - delete dist & build folders
+6. `serve:dist` - run a mini web server locally on port 9001 and serve the contents of the dist/ folder. Useful for testing your built code.
+4. `explorer` - run `source-map-explorer` (great for figuring out why your main.bundle.js is like 11MB)
+5. `build:jit` - build the app in the conventional way (using JIT compilation). You might want to do this if the regular, AoT build is failing.
+7. `serve-watch:aot` - serve an AoT compiled version of the site *(can be a little buggy - probably best to use `serve:jit` instead)*
 
 ## TODO
 
 * Some kind of css preprocessor - maybe scss??
-* Maybe testing?
