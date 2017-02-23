@@ -1,4 +1,4 @@
-import { CounterService } from './counter.service';
+import { NumberService } from './number.service';
 import { TestBed, inject } from '@angular/core/testing';
 import { HttpModule, Http, BaseRequestOptions, ResponseOptions, Response } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
@@ -14,7 +14,7 @@ describe('counter service - angular tests', () => {
     TestBed.configureTestingModule({
       imports: [HttpModule],
       providers: [
-        CounterService,
+        NumberService,
         MockBackend,
         BaseRequestOptions,
         {
@@ -29,8 +29,8 @@ describe('counter service - angular tests', () => {
   it('should extract the initialValue from the response',
     (done) => {
 
-      let injectedFn = inject([CounterService, MockBackend],
-        (service: CounterService, mockBackend: MockBackend) => {
+      let injectedFn = inject([NumberService, MockBackend],
+        (service: NumberService, mockBackend: MockBackend) => {
 
           //mock our backend response by subscribing to `mockBackend.connections`
           mockBackend.connections
@@ -59,8 +59,8 @@ describe('counter service - angular tests', () => {
 
   it('should default to an zero if the http request fails',
     (done) => {
-      inject([CounterService, MockBackend],
-        (service: CounterService, mockBackend: MockBackend) => {
+      inject([NumberService, MockBackend],
+        (service: NumberService, mockBackend: MockBackend) => {
           mockBackend.connections
             .subscribe((connection: MockConnection) => {
               //now we mock an error...
@@ -87,7 +87,7 @@ describe('counter service - angular tests', () => {
  * See the `eccentric-case.pipe.spec.ts` file for more details on isolated unit tests.
  */
 describe('counter service - isolated tests', () => {
-  let counterService: CounterService;
+  let counterService: NumberService;
 
   beforeEach(() => {
     /*
@@ -97,7 +97,7 @@ describe('counter service - isolated tests', () => {
      in this instance we're not testing any code that relies on angular's `http` module, so we can just
      pass in a null value.
      */
-    counterService = new CounterService(null);
+    counterService = new NumberService(null);
   });
 
   it('should correctly add 1 to positive numbers', () => {

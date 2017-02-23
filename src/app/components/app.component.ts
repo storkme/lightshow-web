@@ -1,25 +1,20 @@
 import { Observable } from 'rxjs/Observable';
 
 import { Component, OnInit } from '@angular/core';
-import { CounterService } from '../shared/counter.service';
+import { NumberService } from '../shared/number.service';
 @Component({
   selector: 'app',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [CounterService],
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  counter: Observable<number>;
+  value: Observable<number>;
   sampleText = 'This text has been filtered through the eccentricCase pipe';
 
-  constructor(private counterService: CounterService) {
+  constructor(private numberService: NumberService) {
   }
 
   ngOnInit(): void {
-    this.counter = this.counterService.getInitialValue()
-      .mergeMap(initialValue =>
-        Observable.interval(100)
-          .map(i => i + initialValue)
-      );
+    this.value = this.numberService.getInitialValue();
   }
 }

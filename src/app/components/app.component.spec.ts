@@ -1,41 +1,57 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement }    from '@angular/core';
+import { Observable } from 'rxjs';
+import { By } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { By } from '@angular/platform-browser';
 import { EccentricCasePipe } from '../shared/eccentric-case.pipe';
-import { CounterService } from '../shared/counter.service';
+import { NumberService } from '../shared/number.service';
 
+/**
+ * Here's an example test of our app component.
+ */
 describe('app component', () => {
 
-  let mockedCounterService: any;
+  /* create a blank version of our number service with an empty implementation of the method we'll be spying on */
+  let numberServiceStub: any = {
+    getInitialValue(){
+    }
+  };
+  let spy: any;
 
   let comp: AppComponent;
+  let numberService;
   let fixture: ComponentFixture<AppComponent>;
   let de: DebugElement;
-  let el: HTMLElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [AppComponent, EccentricCasePipe], // declare the test component
+      declarations: [AppComponent, EccentricCasePipe],
       providers: [
-        { provide: CounterService, useValue: mockedCounterService }
+        { provide: NumberService, useValue: numberServiceStub }
       ]
-    })
-      .compileComponents();
+    });
 
     fixture = TestBed.createComponent(AppComponent);
-
     comp = fixture.componentInstance; // BannerComponent test instance
 
-    // query for the title <h1> by CSS element selector
-    de = fixture.debugElement.query(By.css('p.sample-text'));
-    el = de.nativeElement;
+    //get our injected number service (stub)
+    numberService = fixture.debugElement.injector.get(NumberService);
+    //create a spy based on our numberService
+    spy = spyOn(numberService, 'getInitialValue')
+      .and.returnValue(Observable.of(0));
+
+    de = fixture.debugElement.query(By.css('p.number'));
   });
 
-  it('should have an empty text field', () => {
+  it('should not show value before OnInit is called', () => {
+    expect(de.nativeElement.textContent).toBe('', 'nothing displayed');
+    expect(spy.calls.any()).toBe(false, 'getInitialValue not yet called');
+  });
+
+  it('should show initial value from mocked service', () => {
     fixture.detectChanges();
-    fixture.detectChanges();
-    expect(el.textContent).toContain('');
+    expect(spy.calls.any()).toBe(true, 'getInitialValue should be called now');
+    expect(de.nativeElement.textContent).toBe('Number: 0', 'Number text should be seeded with initial value by now');
   });
 });

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
  * Pointless example service.
  */
 @Injectable()
-export class CounterService {
+export class NumberService {
   constructor(private http: Http) {
   }
 
