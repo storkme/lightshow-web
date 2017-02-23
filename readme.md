@@ -40,4 +40,5 @@ In order of how likely you are to need them....!
 
 ## TODO
 
-* End to end testing with protractor
+* End to end testing with protractor?
+* Add in codelyzer for better linting? 
