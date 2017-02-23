@@ -19,8 +19,17 @@ export class CounterService {
   getInitialValue(): Observable<number> {
     return this.http.get('http://foo.bar/initial-value')
     // grab the response as a json object
-      .map(response => response.json())
+      .map(response => response.json().initialValue)
       // swallow any errors and return a default value of 0
       .catch(() => Observable.of(0));
+  }
+
+  /**
+   * Very important application logic for adding one to a number.
+   * @param foo input number
+   * @returns {number} input number plus one
+   */
+  addOne(foo: number): number {
+    return foo + 1;
   }
 }

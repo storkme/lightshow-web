@@ -55,22 +55,28 @@ module.exports.module = {
   ]
 };
 
-module.exports.plugins = [
-  new webpack.ProgressPlugin(),
-  new webpack.ContextReplacementPlugin(
-    // The (\\|\/) piece accounts for path separators in *nix and Windows
-    /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
-    path.join(process.cwd(), 'src')
-  ),
-  new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en-gb/),
-  new CopyWebpackPlugin([
-    { from: 'index.html' }
-  ]),
-  new ExtractTextPlugin('style.bundle.css'),
-  new webpack.DefinePlugin({
-    'DEV_MODE': development,
-  })
-];
+module.exports.plugins = (testMode = false) => {
+  let plugins = [
+    new webpack.ContextReplacementPlugin(
+      // The (\\|\/) piece accounts for path separators in *nix and Windows
+      /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+      path.join(process.cwd(), 'src')
+    ),
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en-gb/),
+    new ExtractTextPlugin('style.bundle.css'),
+    new webpack.DefinePlugin({
+      'DEV_MODE': development,
+    })
+  ];
+
+  if (!testMode) {
+    plugins.push(new CopyWebpackPlugin([
+      { from: 'index.html' }
+    ]));
+  }
+
+  return plugins;
+};
 
 module.exports.resolve = {
   modules: [

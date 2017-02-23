@@ -8,7 +8,7 @@ module.exports = {
   context,
   output,
   module: _module,
-  plugins,
+  plugins:plugins(false),
   resolve,
   devServer,
   stats,
