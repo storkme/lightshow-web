@@ -3,6 +3,7 @@
 * Angular 2
 * Webpack 2
 * Typescript 2
+* Sass preprocessor
 * Unit testing with Karma and Jasmine
 
 ## Get started
