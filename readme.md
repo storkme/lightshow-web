@@ -8,15 +8,21 @@
 
 ## Get started
 
-1. Install dependencies using npm or yarn:
+1. Clone this repo:
+    
+      ```git clone --depth 1 git@git.eckoh.com:alex-storkey/angular-typescript-webpack-starter.git```
+    
+      Note that `--depth 1` removes all but one .git commit history
 
-  ```npm install``` or ```yarn install```
+2. Install dependencies using npm or yarn:
 
-2. Run the `serve-watch:jit` script to kick off the dev server.
+    ```npm install``` or ```yarn install```
 
-  ```npm run serve-watch:jit```
+3. Run the `serve-watch:jit` script to kick off the dev server.
+
+    ```npm run serve-watch:jit```
   
-3. Open up [http://localhost:9000/webpack-dev-server/](http://localhost:9000/webpack-dev-server/) in the browser.
+4. Open up [http://localhost:9000/webpack-dev-server/](http://localhost:9000/webpack-dev-server/) in the browser.
 
 ## files n' folders
 
