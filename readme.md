@@ -50,15 +50,16 @@ in `tslint.json` - remember to replace "my" with something meaningful for your p
 
 In order of how likely you are to need them....!
 
-1. `serve-watch:jit` - serve the plain JIT version of the site.
-2. `test-watch` - watch for file changes & re-run unit tests through Karma
-3. `build` - build the app with AoT compilation
-4. `cleanup` - delete dist & build folders
-5. `serve:dist` - run a mini web server locally on port 9001 and serve the contents of the dist/ folder. Useful for testing your built code.
-6. `explorer` - run `source-map-explorer` (great for figuring out why your main.bundle.js is like 11MB)
-7. `test` - run tests with Karma.
-. `build:jit` - build the app in the conventional way (using JIT compilation). You might want to do this if the regular, AoT build is failing.
-8. `serve-watch:aot` - serve an AoT compiled version of the site *(can be a little buggy - probably best to use `serve:jit` instead)*
+* `serve-watch:jit` - serve the plain JIT version of the site.
+* `test-watch` - watch for file changes & re-run unit tests through Karma
+* `build` - build the app with AoT compilation
+* `lint` - run tslint
+* `cleanup` - delete dist & build folders
+* `serve:dist` - run a mini web server locally on port 9001 and serve the contents of the dist/ folder. Useful for testing your built code.
+* `explorer` - run `source-map-explorer` (great for figuring out why your main.bundle.js is like 11MB)
+* `test` - run tests with Karma.
+* `build:jit` - build the app in the conventional way (using JIT compilation). You might want to do this if the regular, AoT build is failing.
+* `serve-watch:aot` - serve an AoT compiled version of the site *(can be a little buggy - probably best to use `serve:jit` instead)*
 
 ## TODO
 

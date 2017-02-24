@@ -12,7 +12,7 @@
     "serve-watch:aot": "npm run cleanup && npm run ngc && concurrently -r \"webpack-dev-server --config webpack.aot.config.js\" \"node ./bin/ngc-watch.js\"",
     "serve-watch:jit": "npm run cleanup && webpack-dev-server --config webpack.jit.config.js",
     "serve:dist": "http-server ./dist -a 0.0.0.0 -p 9001",
-    "tslint": "tslint -c tslint.json src/**/*.ts",
+    "lint": "tslint -c tslint.json src/**/*.ts",
     "test": "karma start karma.conf.js",
     "test-watch": "npm run test -- --no-single-run --auto-watch"
   },
