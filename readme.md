@@ -63,4 +63,5 @@ In order of how likely you are to need them....!
 
 ## TODO
 
-* End to end testing with protractor? 
+* End to end testing with protractor?
+* Figure out what to do with assets (favicon etc)
