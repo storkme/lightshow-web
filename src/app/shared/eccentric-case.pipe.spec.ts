@@ -1,10 +1,12 @@
 import { EccentricCasePipe } from './eccentric-case.pipe';
 
 /**
- * since we're testing a pipe and a pipe is essentially a pure function, we can write very simple unit tests -
- * called 'isolated unit tests' which don't involve loading up any angular components.
+ * since we're testing a pipe and a pipe is essentially a pure function, we can write very
+ * simple unit tests - called 'isolated unit tests' which
+ * don't involve loading up any angular components.
  *
- * We literally just create a new instance of `EccentricPipe` and call the transform method with different values. Easy.
+ * We literally just create a new instance of `EccentricPipe` and call the transform method
+ * with different values. Easy.
  */
 describe('eccentric-case pipe', () => {
   let eccentricCasePipe: EccentricCasePipe;

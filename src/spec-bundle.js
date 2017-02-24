@@ -1,5 +1,6 @@
 /**
- * I didn't write this file, I 'borrowed' it from https://github.com/AngularClass/angular2-webpack-starter/blob/master/config/spec-bundle.js
+ * I didn't write this file, I 'borrowed' it from
+ * https://github.com/AngularClass/angular2-webpack-starter/blob/master/config/spec-bundle.js
  */
 
 /*

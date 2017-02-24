@@ -12,7 +12,8 @@ import { NumberService } from '../shared/number.service';
  */
 describe('app component', () => {
 
-  /* create a blank version of our number service with an empty implementation of the method we'll be spying on */
+  /* create a blank version of our number service with
+   an empty implementation of the method we'll be spying on */
   let numberServiceStub: any = {
     getRepoCount(){
     }
@@ -52,6 +53,7 @@ describe('app component', () => {
   it('should show initial value from mocked service', () => {
     fixture.detectChanges();
     expect(spy.calls.any()).toBe(true, 'getRepoCount should be called now');
-    expect(de.nativeElement.textContent).toBe('0', 'Number text should be seeded with initial value by now');
+    expect(de.nativeElement.textContent).toBe('0',
+      'Number text should be seeded with initial value by now');
   });
 });

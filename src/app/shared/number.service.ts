@@ -11,15 +11,15 @@ export class NumberService {
   }
 
   /**
-   * Make an external API call to the github API, look at the Eckoh organization and pluck the number of public repos
-   * in this organization.
+   * Make an external API call to the github API, look at the Eckoh organization
+   * and pluck the number of public repos in this organization.
    *
    * @returns {Observable<number>}
    */
   getRepoCount(): Observable<number> {
     return this.http.get('https://api.github.com/orgs/Eckoh')
     // grab the response as a json object
-      .map(response => response.json().public_repos)
+      .map((response) => response.json().public_repos)
       // swallow any errors and return a default value of 0
       .catch(() => Observable.of(0));
   }

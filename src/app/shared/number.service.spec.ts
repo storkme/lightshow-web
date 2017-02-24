@@ -75,8 +75,8 @@ describe('counter service - angular tests', () => {
             });
         }
       )();
-      // ^^^^ notice how we have () on the end to immediately execute the result of calling `inject()` !
-      // if you forget to execute the result of `inject()` your test will do nothing :(
+      // ^^^^ notice how we have () on the end to immediately execute the result of
+      // calling `inject()` !
     }
   );
 });
@@ -91,11 +91,11 @@ describe('counter service - isolated tests', () => {
 
   beforeEach(() => {
     /*
-     create a new counter service here - but we're not loading any of the angular framework, so we
-     need to provide values for the constructor ourselves.
+     create a new counter service here - but we're not loading any of the angular framework,
+     so we need to provide values for the constructor ourselves.
 
-     in this instance we're not testing any code that relies on angular's `http` module, so we can just
-     pass in a null value.
+     in this instance we're not testing any code that relies on angular's `http` module, so
+     we can just pass in a null value.
      */
     counterService = new NumberService(null);
   });
