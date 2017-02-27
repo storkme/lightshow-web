@@ -23,7 +23,7 @@ on GitHub.
     ```npm install``` or ```yarn install```
 
 3. Run the `serve-watch:jit` script to kick off the dev server.
-
+``
     ```npm run serve-watch:jit```
   
 4. Open up [http://localhost:9000/webpack-dev-server/](http://localhost:9000/webpack-dev-server/) in the browser.
@@ -64,4 +64,3 @@ In order of how likely you are to need them....!
 ## TODO
 
 * End to end testing with protractor?
-* Figure out what to do with assets (favicon etc)

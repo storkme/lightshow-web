@@ -63,7 +63,8 @@ module.exports.plugins = (testMode = false) => {
 
   if (!testMode) {
     plugins.push(new CopyWebpackPlugin([
-      { from: 'index.html' }
+      { from: 'index.html' },
+      { from: 'assets', to: 'assets' }
     ]));
   }
 
