@@ -55,6 +55,15 @@ export class StripComponent implements AfterViewInit {
     this.drawing = false;
   }
 
+  mouseClick(event: MouseEvent) {
+    const e = this.canvasRef.nativeElement;
+    const w = e.width;
+    const slot = Math.floor((event.offsetX / w) * numLeds);
+    this.state[slot] = this.currentColor;
+    this.render();
+    this.changes.next(this.state);
+  }
+
   mouseMove(event: MouseEvent) {
     const e = this.canvasRef.nativeElement;
     const w = e.width;
