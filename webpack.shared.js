@@ -40,9 +40,9 @@ module.exports.module = {
       use: 'raw-loader'
     },
     {
-      test: /\.scss$/,
+      test: /\.css$/,
       include: path.resolve(process.cwd(), 'src', 'app'),
-      loaders: ['to-string-loader', 'raw-loader', 'sass-loader']
+      loaders: ['to-string-loader', 'raw-loader']
     }
   ]
 };

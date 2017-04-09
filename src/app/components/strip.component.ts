@@ -44,6 +44,7 @@ export class StripComponent implements AfterViewInit {
       this.state = init;
       this.render();
     });
+    this.render();
   }
 
   startDraw() {

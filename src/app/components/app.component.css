@@ -1,0 +1,55 @@
+.app-component {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+.app-component .dimmer-container {
+  cursor: pointer;
+  user-select: none;
+  height: 100%;
+  margin: 2px;
+}
+.app-component .stuff {
+  flex-grow: 1;
+  margin: 2px;
+}
+.app-component .stuff .palette {
+  margin: 2px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+.app-component .stuff .palette .all-the-text {
+  font-family: 'VT323', sans-serif;
+  color: #c8c8c8;
+  text-align: left;
+  flex-grow: 1;
+  padding-left: 10px;
+}
+.app-component .stuff .palette .ic-palette {
+  margin-right: 10px;
+}
+.app-component .stuff .palette button {
+  align-self: flex-end;
+  height: 40px;
+  width: 40px;
+  margin: 2px;
+  overflow: hidden;
+  border: 1px solid #888888;
+}
+.app-component .stuff .palette button.selected {
+  transform: scale(1.5);
+  transition: all 0.1s ease-in-out;
+  border: 3px solid snow;
+}
+.app-component .stuff .strip-container {
+  cursor: pointer;
+  user-select: none;
+}
