@@ -14,6 +14,7 @@ const numLeds = 288;
             (mouseup)="stopDraw()"
             (mousemove)="mouseMove($event)"
             (mouseleave)="stopDraw()"
+            (click)="mouseClick($event)"
             style="height:90%;width:100%;"></canvas>
   `
 })
