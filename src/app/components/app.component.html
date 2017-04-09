@@ -1,6 +1,25 @@
 <div class="app-component">
-  <h1>Hello world ☺</h1>
-  <p>How many public repositories does Eckoh have on github? <span class="repo-count">{{value|async}}</span></p>
 
-  <p class="sample-text">{{sampleText | eccentricCase}}</p>
+  <div class="dimmer-container">
+    <dimmer (changes)="onLevelChange($event)"
+            [initial]="initialBrightness"></dimmer>
+  </div>
+
+  <div class="stuff">
+    <div class="palette">
+      <span class="all-the-text">choose a color on the right then click around in the empty space below. or don't it's cool.</span>
+      <span class="ic-palette"><i class="fa fa-paint-brush"></i></span>
+      <button type="button" *ngFor="let htmlColor of htmlColorKeys"
+              (click)="onClick(htmlColors[htmlColor])"
+              [style.background]="colorToString(htmlColors[htmlColor])"
+              [ngClass]="{selected: currentlySelectedColor == htmlColors[htmlColor]}">
+      </button>
+    </div>
+    <div class="strip-container">
+      <strip [color]="selectedColor"
+             [initial]="initialState"
+             (changes)="onStripChange($event)"></strip>
+    </div>
+  </div>
+
 </div>
