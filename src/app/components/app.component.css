@@ -52,4 +52,5 @@
 .app-component .stuff .strip-container {
   cursor: pointer;
   user-select: none;
+  height: 100%;
 }
