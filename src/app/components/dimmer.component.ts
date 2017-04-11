@@ -50,7 +50,8 @@ export class DimmerComponent implements AfterViewInit {
     const ctx = e.getContext('2d');
 
     ctx.fillStyle = 'black';
-    ctx.fillRect(0, 0, e.width, e.height);
+    // ctx.fillRect(0, 0, e.width, e.height);
+    ctx.clearRect(0, 0, e.width, e.height);
 
     for (let i = 0; i <= value; i++) {
       let y = e.height - ((barHeight + padding) * i);
